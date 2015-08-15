@@ -1,5 +1,10 @@
 package interficie;
 
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import utils.Utils;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -10,13 +15,15 @@ package interficie;
  *
  * @author oscar
  */
-public class Config extends javax.swing.JFrame {
+public class Config extends javax.swing.JFrame 
+                    implements ActionListener{
 
     /**
      * Creates new form Config
      */
     public Config() {
         initComponents();
+        btnProvarConnexio.addActionListener(this);
     }
 
     /**
@@ -28,17 +35,35 @@ public class Config extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        btnProvarConnexio = new javax.swing.JButton();
+        btnIniciar = new javax.swing.JButton();
+        txtResultatConnexio = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        etxtHost = new javax.swing.JTextField();
+        etxtPort = new javax.swing.JTextField();
+        etxtBD = new javax.swing.JTextField();
+
+        jTextField2.setText("jTextField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Provar Connexio B.D.");
+        btnProvarConnexio.setText("Provar Connexio B.D.");
+        btnProvarConnexio.setName(""); // NOI18N
 
-        jButton2.setText("Iniciar");
+        btnIniciar.setText("Iniciar");
 
-        jLabel1.setText("jLabel1");
+        txtResultatConnexio.setText("connexio");
+
+        jLabel2.setText("host");
+
+        jLabel3.setText("Port");
+
+        jLabel4.setText("B.D.");
+
+        etxtHost.setName("etxtHost"); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -47,25 +72,57 @@ public class Config extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnProvarConnexio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnIniciar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(etxtHost)
+                            .addComponent(etxtPort)
+                            .addComponent(etxtBD, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE))))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(172, 172, 172)
-                .addComponent(jLabel1)
-                .addContainerGap(177, Short.MAX_VALUE))
+                .addGap(169, 169, 169)
+                .addComponent(txtResultatConnexio)
+                .addContainerGap(168, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(9, 9, 9)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(etxtHost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(etxtPort, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(etxtBD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtResultatConnexio)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnProvarConnexio)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnIniciar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        btnIniciar.getAccessibleContext().setAccessibleDescription("");
+        txtResultatConnexio.getAccessibleContext().setAccessibleName("txtConnexio");
+        jLabel2.getAccessibleContext().setAccessibleName("TXTHost");
+        jLabel3.getAccessibleContext().setAccessibleName("TXTPort");
+        jLabel4.getAccessibleContext().setAccessibleName("TXTBD");
+        etxtHost.getAccessibleContext().setAccessibleName("etxtHost");
+        etxtHost.getAccessibleContext().setAccessibleDescription("");
+        etxtPort.getAccessibleContext().setAccessibleName("etxtPort");
+        etxtBD.getAccessibleContext().setAccessibleName("etxtBD");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -106,8 +163,30 @@ public class Config extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton btnIniciar;
+    private javax.swing.JButton btnProvarConnexio;
+    private javax.swing.JTextField etxtBD;
+    private javax.swing.JTextField etxtHost;
+    private javax.swing.JTextField etxtPort;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JLabel txtResultatConnexio;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource() == btnProvarConnexio){
+            String host = etxtHost.getText();
+            String port = etxtPort.getText();
+            String bd = etxtBD.getText();
+            if(Utils.provarConnexioBD(host, port, bd)){
+                txtResultatConnexio.setText("Connexio OK");
+            }
+            else{
+                txtResultatConnexio.setText("Connexio FAIL");
+            }
+        }
+    }
 }
